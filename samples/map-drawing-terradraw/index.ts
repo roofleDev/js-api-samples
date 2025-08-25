@@ -339,6 +339,10 @@ loader.load().then(async () => {
             }, 200);
         });
 
+        draw.on("finish", (id, type) => {
+            console.log('finish', id, type)
+        });
+
         // [END maps_drawing_terradraw_modes]
 
         const exportButton = document.getElementById('export-button');
