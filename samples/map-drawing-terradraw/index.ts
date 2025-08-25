@@ -318,6 +318,8 @@ loader.load().then(async () => {
         history.push(processSnapshotForUndo(draw.getSnapshot())); // Push initial empty state
 
         draw.on("change", (ids, type) => {
+            console.log('change', ids, type);
+
             if (isRestoring) {
                 return;
             }
@@ -451,6 +453,22 @@ loader.load().then(async () => {
                     setTimeout(() => { isRestoring = false; }, 0);
                 }
             };
+        }
+
+        const startButton = document.getElementById('start-button');
+        if(startButton) {
+            startButton.onclick = () => {
+                console.log('start!');
+                draw.start()
+            }
+        }
+
+        const stopButton = document.getElementById('stop-button');
+        if(stopButton) {
+            stopButton.onclick = () => {
+                console.log('stop!');
+                draw.stop()
+            }
         }
       });
       
