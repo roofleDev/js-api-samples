@@ -341,8 +341,6 @@ loader.load().then(async () => {
 
         draw.on("finish", (id, type) => {
             console.log('finish', id, type)
-
-            // I can't replicate it here, but my application results in an empty snapshot for the duplicated events
             console.log(draw.getSnapshot());
         });
 
